@@ -21,59 +21,114 @@ namespace Lesson5
         
         static void Main(string[] args)
         {
-            int[] first = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+            double[] first = { 1, 2, 3, 4, 5, 6, 4, 8, 4, 4 };
 
-            foreach (var item in first)
+            Random r = new Random();
+            for (int i = 0; i < first.Length; i++)
             {
-                Console.Write($"{item}, ");
+                first[i] = r.Next(0,100) / 50.0 - 1;
+                Console.WriteLine(first[i]);
             }
 
+            int[] a = new int[31];
+            int common = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = r.Next()%21; // r.Next(0, 21);
+                Console.WriteLine(a[i]);
+                common += a[i];
+            }
+            Console.WriteLine($"Common = {common}");
+            Console.WriteLine($"Avg = {(double)common/a.Length}");
 
-            //Console.WriteLine('\n');
-            //Console.WriteLine(first);
-
-
-            //int[] second = new int[first.Length];
-            //Array.Copy(first, 3, second, 4, 5);
-            //Console.WriteLine("\n\nArray.Copy(first, 3, second, 4, 5);");
-            //foreach (var item in second)
-            //{
-            //    Console.Write($"{item}, ");
-            //}
-
-            //int[] bb = new int[100000];
-            //for (int i = 0; i < bb.Length; i++)
-            //{
-            //    bb.SetValue(r.Next(1, 1000), i);
-                // bb[i] = r.Next(1, 1000);
-                //                Console.WriteLine(bb[i]+" ");
-            //}
-            
+            int k = 5;
+            Console.WriteLine(a[k]%2 == 0? "Yes": "No");
             /*
-            int w = 10;
-            String s = "10 7";
 
-            Int32.TryParse(s, out w);
-            
-            try
-            {
-                w = Int32.Parse(s);
-            }
-            catch (Exception e)
-            {
-                w = 0;
-                // Console.WriteLine(e.Message);
-            }
+         int n = 0, k = -1;
+         while (n < 3)
+         {
+             k = Array.IndexOf(first, 4, k+1);
+             n++;
+             Console.WriteLine(k);
+         }
 
-            Console.WriteLine(w);
-            */
+
+      foreach (var item in first)
+      {
+          Console.Write($"{item}, ");
+      }
+
+      Console.WriteLine('\n');
+      for (int i = 0; i < first.Length; i++)
+      {
+          Console.Write(first[i] + ", " );
+      }
+
+      Console.WriteLine('\n');
+      Console.WriteLine(first);
+
+
+      int[] second = new int[first.Length];
+      //Array.Copy(first, 3, second, 4, 5);
+      Array.Copy(first, second, first.Length);
+      Console.WriteLine("\n\nArray.Copy(first, 3, second, 4, 5);");
+      first[0] = 555;
+      foreach (var item in second)
+      {
+          Console.Write($"{item}, ");
+      }
+
+      Random r = new Random();
+      int[] bb = new int[100];
+      for (int i = 0; i < bb.Length; i++)
+      {
+          //bb.SetValue(r.Next(1, 1000), i);
+          bb[i] = r.Next(1, 1000);
+          Console.WriteLine(bb[i] + " ");
+      }
+      */
+            /*
+               int w = 10;
+               String s = "10 7";
+
+               Int32.TryParse(s, out w);
+
+               try
+               {
+                   w = Int32.Parse(s);
+               }
+               catch (Exception e)
+               {
+                   w = 0;
+                   // Console.WriteLine(e.Message);
+               }
+
+               Console.WriteLine(w);
+               */
 
             //int[,] c = {
-            //                { 1, 2, 3 },
-            //                { 4, 5, 6 },
-            //                { -1, -2, -3 },
-            //                { -4, -5, 0 }
+            //                { 1, 2, 3 }, { 4, 5, 6 },  { -1, -2, -3 }, { -4, -5, 0 }
             //            };
+            //int min = c[0,0];
+            //foreach (var item in c)
+            //{
+            //    if (item < min)
+            //        min = item;
+            //}
+            //Console.WriteLine(min);
+
+            //min = c[0, 0];
+            //for (int i = 0; i < c.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < c.GetLength(1); j++)
+            //    {
+            //        if (c[i, j] < min)
+            //            min = c[i, j];
+            //        c[i, j] = 0;
+            //    }
+            //}
+            //Console.WriteLine(min);
 
             //Console.WriteLine("\n\n");
             //Random r = new Random();
@@ -87,6 +142,7 @@ namespace Lesson5
             //    Console.WriteLine();
             //}
 
+            //Random r = new Random();
             //Console.WriteLine("\n\n");
             //int[][] jaggedArray = { new int[3], new int[5], new int[4] };
             //for (int i = 0; i < jaggedArray.GetLength(0); i++)
@@ -100,15 +156,16 @@ namespace Lesson5
             //    Console.WriteLine();
             //}
 
-            //int Fcount = 3;
-            //string[] Fathers = new string[Fcount];
-            //Fathers[0] = "Николай"; Fathers[1] = "Сергей";
-            //Fathers[2] = "Петр";
-            //string[][] Children = new string[Fcount][];
-            //Children[0] = new string[] { "Ольга", "Федор" };
-            //Children[1] = new string[] { "Сергей", "Валентина", "Ира", "Дмитрий", "Ира", "Дмитрий" };
-            //Children[2] = new string[] { "Мария", "Ирина", "Надежда" };
-            //PrintAr3(Fathers, Children);
+            int Fcount = 3;
+            string[] Fathers = new string[Fcount];
+            Fathers[0] = "Николай";
+            Fathers[1] = "Сергей";
+            Fathers[2] = "Петр";
+            string[][] Children = new string[Fcount][];
+            Children[0] = new string[] { "Ольга", "Федор" };
+            Children[1] = new string[] { "Сергей", "Валентина", "Ира", "Дмитрий", "Ира", "Дмитрий" };
+            Children[2] = new string[] { "Мария", "Ирина", "Надежда" };
+            PrintAr3(Fathers, Children);
 
             //Console.WriteLine("\n\n");
 
@@ -118,7 +175,7 @@ namespace Lesson5
             //    december[i] = r.Next(-10, 10);
             //    Console.Write($"{december[i]}\t" );
             //}
-            
+
             // Пузырьковая сортировка
             /*
             for (int j = 0; j < b.Length - 1; j++)
@@ -135,7 +192,7 @@ namespace Lesson5
             }
             Array.Sort(b);
             */
-            
+
             //int day = 1;
             //foreach (var item in december)
             //{
